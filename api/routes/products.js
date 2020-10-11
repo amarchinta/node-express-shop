@@ -3,23 +3,23 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Product = require("../models/products");
 
-router.post("/",(req, res, next) => {
-     const product = new Product({
+router.post("/",(req, res) => {
+    
+    const product = new Product({
         _id : new mongoose.Types.ObjectId(),
         name : req.body.name,
         price : req.body.price
-    })
+    });
 
-    product.save()
-    .then(result => {
-        console.log('product added')
-    })
-    .catch(err => {
-        console.log(err);
-    })
+    console.log(product);
+    product
+    .save()
+    .then(result => console.log(result))
+    .catch((error) => console.log(error));
 
     res.status(200).json({
-        message : "Producst are working"
+        message : "Producst are working",
+        createdProduct : product
     })
 })
 

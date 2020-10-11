@@ -4,11 +4,11 @@ const productSchema = mongoose.Schema({
     _id : mongoose.Schema.Types.ObjectId,
     name : {
         type : String,
-        Required : [ true , 'Name can not be none']
+        Required : true
     },
     price:{
         type : String,
-        Required : [true, 'Price can not be none' ]
+        Required : true
     }
 })
 
